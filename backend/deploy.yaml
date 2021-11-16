@@ -1,25 +1,3 @@
-# ---
-# apiVersion: apps/v1
-#kind: Deployment
-#metadata:
-#  name: mynginx
-# spec:
-#  replicas: 1
-#  selector:
-#    matchLabels:
-#      run: mynginx
-#  template:
-#    metadata:
-#      labels:
-#        run: mynginx
-#    spec:
-#      containers:
-#      - image: hans9102/frontapp:1.0
-#        name: mynginx
-#        ports:
-#        - containerPort: 80
-#---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -38,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-server
-        image: gkstnals24/bluebird:18
+        image: hans9102/backapp:1.0 
         ports:
         - containerPort: 3000
         env:
@@ -56,7 +34,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
+  - port: 8080
     protocol: TCP
     targetPort: 3000
   selector:
