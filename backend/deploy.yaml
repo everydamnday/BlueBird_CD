@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: node-deployment
   labels:
-    app: node
+    app: back
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node
+      app: back
   template:
     metadata:
       labels:
-        app: node
+        app: back
     spec:
       containers:
-      - name: api-server
+      - name: back
         image: hans9102/backapp:1.0 
         ports:
         - containerPort: 3000
