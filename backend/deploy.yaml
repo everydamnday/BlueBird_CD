@@ -38,9 +38,9 @@ spec:
     spec:
       containers:
       - name: api-server
-        image: hans9102/backapp:1.0
+        image: gkstnals24/bluebird:18
         ports:
-        - containerPort: 3005
+        - containerPort: 8080
         env:
         - name: PORT
           value: 3005
