@@ -40,9 +40,24 @@ spec:
       - name: api-server
         image: gkstnals24/bluebird:18
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
         env:
         - name: PORT
-          value: 3005
+          value: 3000
         - name: MONGO_URL
           value: mongodb://mongo:27017/docker-node-mongo
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: back
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: back
